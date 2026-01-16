@@ -1,0 +1,27 @@
+[package]
+name = "operacaobanco"
+version = "0.1.0"
+edition = "2024"
+ 
+
+
+
+
+[dependencies]
+async-trait = "0.1.89"
+chrono = { version = "0.4", features = ["serde"] }
+clearscreen = "4.0.2"
+currency_rs = "1.3.0"
+getset = "0.1.6"
+prettytable = "0.10.0"
+range = "1.0.0"
+regex = "1.12.2"
+serde = { version = "1.0.228", features = ["derive"] }
+
+
+[profile.release]
+strip = true       # Remove símbolos de depuração (debug symbols)
+opt-level = "s"    # Otimiza para tamanho de código, não para velocidade
+lto = true         # Ativa Link-Time Optimization (otimização em tempo de linkagem)
+codegen-units = 1  # Ajuda no LTO para otimização máxima de tamanho
+panic = "abort"    # Aborta o programa em caso de pânico, em vez de desenrolar a pilha, economizando código extra
